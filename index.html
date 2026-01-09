@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Converter</title>
+
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+</head>
+
+<body>
+
+<h1>🖼️ Image Converter</h1>
+
+<div class="controls">
+  <button id="browseFolderBtn">Select Folder</button>
+  <button id="browseFilesBtn">Select Files</button>
+</div>
+
+<div id="dragDropZone" class="dropzone">📂 Drag & Drop Images Here</div>
+
+<input type="file" id="folderInput" webkitdirectory multiple hidden>
+<input type="file" id="filesInput" multiple accept="image/*" hidden>
+
+<div class="controls">
+  <strong>Quality</strong>
+  <input type="range" id="qualityRange" min="1" max="100" value="90">
+  <input type="number" id="qualityInput" min="1" max="100" value="90">
+  <span id="qval">90%</span>
+</div>
+
+<div class="controls">
+  <strong>Target Format</strong>
+  <select id="formatSelect">
+    <option value="image/webp">WebP</option>
+    <option value="image/jpeg">JPG</option>
+    <option value="image/png">PNG</option>
+    <option value="image/avif">AVIF</option>
+  </select>
+</div>
+
+<div class="controls">
+  <label><input type="checkbox" id="includeOriginals" checked> Include Originals</label>
+  <label><input type="checkbox" id="zipOutput" checked> ZIP Output</label>
+</div>
+
+<button id="downloadAll" disabled>Download</button>
+
+<div id="preview" class="preview"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
